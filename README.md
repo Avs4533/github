@@ -1,4 +1,4 @@
-### NUMBER_GUESSING_GAME
+# NUMBER_GUESSING_GAME
 
 A console based number guessing game developed in python with management and gaming features.
 
@@ -6,7 +6,7 @@ A console based number guessing game developed in python with management and gam
 
 
 
-##📜Table of Contents
+## 📜Table of Contents
 
 Features
 Installation
@@ -15,9 +15,9 @@ Game Details
 Technical Specs
 Future plans
 
-##🚀 Features
+## 🚀 Features
 
- #👤User System
+ ### 👤User System
 
  Import the Random Module: Use the random module to generate a random number.
 
@@ -41,7 +41,7 @@ Guess 5: 40 → Too low
 Guess 6: 41 → Too low
 Guess 7: 42 → Correct!
 
-#🎮Gaming
+## 🎮Gaming
 
 . Guessing in a Range from 1 to 100.
 Suppose the user defines the range from 1 to 100,
@@ -56,7 +56,7 @@ Guess 5: 40 → Too low
 Guess 6: 41 → Too low
 Guess 7: 42 → Correct!
 
-##💻Installation
+## 💻Installation
 
 1.Clone Repository
 https://github.com/Avs4533/github/blob/main/Number_Guessing_game.py
@@ -67,7 +67,7 @@ python.exe
 3.Run Application
 \Number_Guessing
 
-##📅Future plans
+## 📅Future plans
 
 .A graphical user interface (GUI) can be added using Tkinter or PyQt.
 
@@ -79,7 +79,7 @@ python.exe
 
 .A timer can be added to make the game more challenging.
 
-#⚠️Note
+### ⚠️Note
 This is an educational project.Not associated with real gambling systems.
 
 
