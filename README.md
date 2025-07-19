@@ -1,4 +1,4 @@
-# NUMBER_GUESSING_GAME
+### NUMBER_GUESSING_GAME
 
 A console based number guessing game developed in python with management and gaming features.
 
@@ -6,7 +6,7 @@ A console based number guessing game developed in python with management and gam
 
 
 
-📜Table of Contents
+##📜Table of Contents
 
 Features
 Installation
@@ -15,13 +15,17 @@ Game Details
 Technical Specs
 Future plans
 
-🚀 Features
+##🚀 Features
 
- 👤User System
+ #👤User System
+
  Import the Random Module: Use the random module to generate a random number.
+
 Generate a Random Number: Use random.randrange(1, 100) to generate a random number between 1 and 100.
+
 Get User Input: Use input() to prompt the user to guess the number.
 Provide Feedback: Use conditional statements to check if the guess is too low, too high, or correct, and provide appropriate feedback.
+
 Repeat Until Correct: Use a while loop to keep asking the user for a guess until the correct number is guessed.
  
   To understand how the number guessing game functions, let’s walk through two practical scenarios. These examples demonstrate how narrowing down the range intelligently—similar to a binary search—can help guess the number efficiently.
@@ -37,7 +41,7 @@ Guess 5: 40 → Too low
 Guess 6: 41 → Too low
 Guess 7: 42 → Correct!
 
-🎮Gaming
+#🎮Gaming
 
 . Guessing in a Range from 1 to 100.
 Suppose the user defines the range from 1 to 100,
@@ -52,7 +56,7 @@ Guess 5: 40 → Too low
 Guess 6: 41 → Too low
 Guess 7: 42 → Correct!
 
-💻Installation
+##💻Installation
 
 1.Clone Repository
 https://github.com/Avs4533/github/blob/main/Number_Guessing_game.py
@@ -63,7 +67,7 @@ python.exe
 3.Run Application
 \Number_Guessing
 
-📅Future plans
+##📅Future plans
 
 .A graphical user interface (GUI) can be added using Tkinter or PyQt.
 
@@ -75,7 +79,7 @@ python.exe
 
 .A timer can be added to make the game more challenging.
 
-⚠️Note
+#⚠️Note
 This is an educational project.Not associated with real gambling systems.
 
 
