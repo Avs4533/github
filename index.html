@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Urban Gents — Men's Clothing</title>
+    <meta name="description" content="Shop men's clothing: tees, shirts, jackets, pants, and accessories.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg:#0f1115; --panel:#151924; --muted:#8992a3; --text:#e8ecf1; --brand:#4f8cff; --brand2:#8a5cff; --ok:#29c178; --warn:#ffb020; --danger:#ff5468; }
+        * { box-sizing:border-box; }
+        html, body { margin:0; padding:0; height:100%; }
+        body { font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text); background:radial-gradient(1200px 800px at 10% 0%, #101520 0%, #0d0f14 45%, #0b0d12 100%) fixed; line-height:1.5; }
+        a { color:inherit; text-decoration:none; }
+        img { display:block; max-width:100%; height:auto; }
+        .container { width:100%; max-width:1200px; margin:0 auto; padding:0 20px; }
+
+        /* Header */
+        header { position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(16,18,25,.85), rgba(16,18,25,.65)); border-bottom:1px solid rgba(255,255,255,.06); }
+        .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+        .brand { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px; }
+        .brand .logo { width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--brand), var(--brand2)); box-shadow:0 6px 18px rgba(79,140,255,.35); }
+        .nav-links { display:flex; align-items:center; gap:18px; color:var(--muted); font-weight:500; }
+        .nav-cta { display:flex; align-items:center; gap:10px; }
+        .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; font-weight:600; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); color:var(--text); }
+        .btn.primary { background:linear-gradient(180deg, var(--brand), var(--brand2)); border-color:transparent; box-shadow:0 10px 24px rgba(112, 121, 255, .32); }
+        .btn:hover { transform:translateY(-1px); transition:transform .15s ease; }
+
+        /* Hero */
+        .hero { padding:56px 0 28px; position:relative; overflow:hidden; }
+        .hero-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:stretch; }
+        .hero-card { border-radius:16px; overflow:hidden; position:relative; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); }
+        .hero-card .media { position:relative; min-height:300px; background:#0b0d12; }
+        .hero-card .media img { width:100%; height:100%; object-fit:cover; }
+        .hero-card .content { position:absolute; inset:auto 0 0 0; padding:22px; background:linear-gradient(180deg, rgba(11,13,18,0) 0%, rgba(11,13,18,.9) 100%); }
+        .eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:#b8c0d1; }
+        .title-xl { margin:10px 0 8px; font-size:40px; line-height:1.1; font-weight:800; letter-spacing:-.02em; }
+        .subtitle { color:var(--muted); max-width:52ch; }
+        .hero-actions { margin-top:14px; display:flex; gap:12px; flex-wrap:wrap; }
+
+        /* Categories */
+        .section { padding:34px 0; }
+        .section-header { display:flex; align-items:end; justify-content:space-between; gap:12px; margin-bottom:18px; }
+        .section-title { font-size:20px; font-weight:700; letter-spacing:.2px; }
+        .categories { display:grid; grid-template-columns:repeat(6, 1fr); gap:12px; }
+        .chip { padding:10px 12px; text-align:center; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); color:#d9e1ee; font-weight:600; cursor:pointer; }
+        .chip:hover { border-color:rgba(255,255,255,.18); }
+
+        /* Products */
+        .products { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+        .card { border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); display:flex; flex-direction:column; }
+        .card-media { position:relative; background:#0b0d12; }
+        .badge { position:absolute; top:10px; left:10px; padding:6px 10px; font-size:12px; font-weight:700; border-radius:999px; background:linear-gradient(180deg, #29c178, #1ea56b); color:white; }
+        .card-body { padding:14px; display:flex; gap:10px; align-items:flex-start; justify-content:space-between; }
+        .name { font-weight:700; }
+        .muted { color:var(--muted); font-size:13px; }
+        .price { font-weight:800; background:linear-gradient(180deg, var(--brand), var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+        .actions { padding:0 14px 14px; display:flex; gap:10px; }
+        .btn.icon { padding:10px 12px; }
+
+        /* Footer */
+        footer { margin-top:36px; padding:28px 0 40px; color:var(--muted); border-top:1px solid rgba(255,255,255,.06); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns:1fr; }
+            .products { grid-template-columns:repeat(3, 1fr); }
+            .categories { grid-template-columns:repeat(4, 1fr); }
+        }
+        @media (max-width: 720px) {
+            .nav { height:60px; }
+            .title-xl { font-size:30px; }
+            .products { grid-template-columns:repeat(2, 1fr); }
+            .categories { grid-template-columns:repeat(3, 1fr); }
+            .nav-links { display:none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <a class="brand" href="#">
+                <div class="logo"></div>
+                <span>Urban Gents</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#new">New</a>
+                <a href="#tops">Tops</a>
+                <a href="#bottoms">Bottoms</a>
+                <a href="#outerwear">Outerwear</a>
+                <a href="#accessories">Accessories</a>
+            </nav>
+            <div class="nav-cta">
+                <a class="btn" href="#search">Search</a>
+                <a class="btn primary" href="#cart">Cart</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <article class="hero-card" aria-label="Featured drop">
+                    <div class="media">
+                        <img src="https://images.unsplash.com/photo-1520975922284-7b801c9c7293?q=80&w=1600&auto=format&fit=crop" alt="Man wearing a denim jacket and white tee">
+                        <div class="content">
+                            <div class="eyebrow">New Drop</div>
+                            <h1 class="title-xl">Minimal layers built for city life</h1>
+                            <p class="subtitle">Effortless silhouettes and premium textiles, designed to move with you from weekday to weekend.</p>
+                            <div class="hero-actions">
+                                <a class="btn primary" href="#shop">Shop collection</a>
+                                <a class="btn" href="#lookbook">View lookbook</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="hero-card" aria-label="Seasonal essentials">
+                    <div class="media">
+                        <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1600&auto=format&fit=crop" alt="Folded shirts and knitwear">
+                        <div class="content">
+                            <div class="eyebrow">Essentials</div>
+                            <h2 class="title-xl" style="font-size:28px;">The modern man's capsule</h2>
+                            <p class="subtitle">Timeless staples that pair with everything you own.</p>
+                            <div class="hero-actions">
+                                <a class="btn" href="#essentials">Build your kit</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="categories" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h3 class="section-title">Shop by category</h3>
+                    <a class="muted" href="#all">View all</a>
+                </div>
+                <div class="categories">
+                    <button class="chip">T-Shirts</button>
+                    <button class="chip">Polos</button>
+                    <button class="chip">Shirts</button>
+                    <button class="chip">Jeans</button>
+                    <button class="chip">Trousers</button>
+                    <button class="chip">Shorts</button>
+                    <button class="chip">Hoodies</button>
+                    <button class="chip">Sweaters</button>
+                    <button class="chip">Jackets</button>
+                    <button class="chip">Coats</button>
+                    <button class="chip">Sneakers</button>
+                    <button class="chip">Accessories</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h3 class="section-title">Trending now</h3>
+                    <a class="muted" href="#new">New arrivals</a>
+                </div>
+                <div class="products">
+                    <article class="card">
+                        <div class="card-media">
+                            <span class="badge">New</span>
+                            <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop" alt="Black heavyweight tee">
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <div class="name">Heavyweight Tee</div>
+                                <div class="muted">Jet Black</div>
+                            </div>
+                            <div class="price">$32</div>
+                        </div>
+                        <div class="actions">
+                            <a class="btn icon" href="#">Add</a>
+                            <a class="btn" href="#">Details</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-media">
+                            <span class="badge" style="background:linear-gradient(180deg, #ffb020, #d48a00);">Limited</span>
+                            <img src="https://images.unsplash.com/photo-1547431121-41887f8b4c61?q=80&w=1200&auto=format&fit=crop" alt="Denim jacket">
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <div class="name">Selvedge Denim Jacket</div>
+                                <div class="muted">Indigo</div>
+                            </div>
+                            <div class="price">$128</div>
+                        </div>
+                        <div class="actions">
+                            <a class="btn icon" href="#">Add</a>
+                            <a class="btn" href="#">Details</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="Slim chinos">
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <div class="name">Slim Chinos</div>
+                                <div class="muted">Sand</div>
+                            </div>
+                            <div class="price">$74</div>
+                        </div>
+                        <div class="actions">
+                            <a class="btn icon" href="#">Add</a>
+                            <a class="btn" href="#">Details</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop" alt="White leather sneakers">
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <div class="name">Leather Sneakers</div>
+                                <div class="muted">White</div>
+                            </div>
+                            <div class="price">$98</div>
+                        </div>
+                        <div class="actions">
+                            <a class="btn icon" href="#">Add</a>
+                            <a class="btn" href="#">Details</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <div class="logo"></div>
+                <strong style="color:#dfe7f5;">Urban Gents</strong>
+            </div>
+            <div style="display:flex; gap:14px;">
+                <a href="#shipping">Shipping</a>
+                <a href="#returns">Returns</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy</a>
+            </div>
+            <div class="muted">© <span id="year"></span> Urban Gents. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear().toString();
+    </script>
+</body>
+</html>
+
