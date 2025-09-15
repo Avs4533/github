@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Men's fashion e-commerce: shop shirts, jeans, jackets, shoes, and accessories.">
+    <title>Menswear Co. — Shop Men's Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/img/favicon.png">
+    <meta name="theme-color" content="#111827">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="#" aria-label="Menswear Co. home">Menswear<span>Co.</span></a>
+            <nav class="nav" aria-label="Primary">
+                <button id="openFiltersBtn" class="btn btn-ghost show-on-mobile" aria-controls="filtersPanel" aria-expanded="false">Filters</button>
+                <a href="#new" class="nav-link">New</a>
+                <a href="#clothing" class="nav-link">Clothing</a>
+                <a href="#shoes" class="nav-link">Shoes</a>
+                <a href="#accessories" class="nav-link">Accessories</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search">
+                    <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+                    <button id="clearSearchBtn" class="icon-btn" aria-label="Clear search" title="Clear">
+                        <span>✕</span>
+                    </button>
+                </div>
+                <button id="cartBtn" class="btn btn-primary" aria-haspopup="dialog" aria-controls="cartDrawer" aria-expanded="false">
+                    <span class="cart-icon">🛒</span>
+                    <span id="cartCount" class="badge" aria-label="items in cart">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-grid">
+        <aside id="filtersPanel" class="filters" aria-label="Filters">
+            <div class="filters-header">
+                <h2>Filters</h2>
+                <button id="closeFiltersBtn" class="icon-btn show-on-mobile" aria-label="Close filters" title="Close">✕</button>
+            </div>
+            <section class="filter-group">
+                <h3>Category</h3>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox" name="category" value="Shirts"> Shirts</label></li>
+                    <li><label><input type="checkbox" name="category" value="Jeans"> Jeans</label></li>
+                    <li><label><input type="checkbox" name="category" value="Jackets"> Jackets</label></li>
+                    <li><label><input type="checkbox" name="category" value="Shoes"> Shoes</label></li>
+                    <li><label><input type="checkbox" name="category" value="Accessories"> Accessories</label></li>
+                </ul>
+            </section>
+
+            <section class="filter-group">
+                <h3>Price</h3>
+                <div class="price-range">
+                    <input id="priceMin" type="number" placeholder="Min" min="0" step="1" aria-label="Minimum price">
+                    <span class="dash">—</span>
+                    <input id="priceMax" type="number" placeholder="Max" min="0" step="1" aria-label="Maximum price">
+                </div>
+            </section>
+
+            <section class="filter-group">
+                <h3>Sort</h3>
+                <select id="sortSelect" aria-label="Sort products">
+                    <option value="popularity">Most popular</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </section>
+
+            <div class="filter-actions">
+                <button id="applyFiltersBtn" class="btn btn-primary">Apply</button>
+                <button id="resetFiltersBtn" class="btn btn-ghost">Reset</button>
+            </div>
+        </aside>
+
+        <section class="products">
+            <div class="section-header">
+                <h1>Men's Clothing</h1>
+                <p id="resultsCount" class="muted">0 results</p>
+            </div>
+            <div id="productsGrid" class="grid"></div>
+        </section>
+    </main>
+
+    <div id="cartDrawer" class="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+        <div class="cart-header">
+            <h2 id="cartTitle">Your Cart</h2>
+            <button id="closeCartBtn" class="icon-btn" aria-label="Close cart">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="totals">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">$0.00</strong>
+            </div>
+            <button id="checkoutBtn" class="btn btn-primary btn-block">Checkout</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <div class="logo">Menswear<span>Co.</span></div>
+                <p class="muted">Quality essentials for everyday style.</p>
+            </div>
+            <nav>
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Shirts</a></li>
+                    <li><a href="#">Jeans</a></li>
+                    <li><a href="#">Jackets</a></li>
+                    <li><a href="#">Shoes</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container copyright">
+            <small>© <span id="year"></span> Menswear Co. All rights reserved.</small>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js" defer></script>
+    <noscript>Please enable JavaScript to use the cart and filters.</noscript>
+</body>
+</html>
